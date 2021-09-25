@@ -40,5 +40,6 @@ public class calculator {
                     break;
                 }
         }
+        sc.close();
     }
 }
