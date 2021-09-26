@@ -1,7 +1,10 @@
 /*
+ Autor: Gabriel Vargas Reyes
+ Fecha: 26/09/2021 
+
  Consideraciones:
-  - Si se utliza la función "System.out.print() en lugar de System.out.println() se podrá introducir texto en la misma linea"
-  (por eso aparecen lineas con System.out.print() y con System.out.println())
+  - Si se utliza la función "System.out.print()" en lugar de System.out.println() se podrá introducir texto en la misma linea
+  (por eso aparecen lineas con "System.out.print()" y con "System.out.println()")
   */
 
 package Calculator;
