@@ -20,6 +20,10 @@ public class calculator_v2 {
         }
     } // Función para pausar el programa
 
+    public static int round(float number) {
+        return Math.round(number);
+    } // Función para redondear un número
+
     public static void main(String[] args) {
         // Colores
         String ANSI_RESET = "\u001B[0m";
@@ -169,11 +173,11 @@ public class calculator_v2 {
         String ANSI_RED = "\u001B[31m";
         String ANSI_GREEN = "\u001B[32m";
         try {
-            int num1 = Integer.parseInt(n1);
-            int num2 = Integer.parseInt(n2);
-            int sum = num1 + num2;
-            wait(500);
+            float num1 = Float.parseFloat(n1);
+            float num2 = Float.parseFloat(n2);
+            float sum = num1 + num2;
             System.out.println(ANSI_GREEN + "[ + ] El resultado de la operación es " + sum + ANSI_RESET);
+            wait(500);
             System.out.println("\n");
         } catch (NumberFormatException e) {
             System.out.println(ANSI_RED + "[ ! ] Los datos intrroducidos no son válidos, por favor intentalo de nuevo"
@@ -187,9 +191,9 @@ public class calculator_v2 {
         String ANSI_RED = "\u001B[31m";
         String ANSI_GREEN = "\u001B[32m";
         try {
-            int num1 = Integer.parseInt(n1);
-            int num2 = Integer.parseInt(n2);
-            int sub = num1 - num2;
+            float num1 = Float.parseFloat(n1);
+            float num2 = Float.parseFloat(n2);
+            float sub = num1 - num2;
             wait(500);
             System.out.println(ANSI_GREEN + "[ - ] El resultado de la operación es " + sub + ANSI_RESET);
             System.out.println("\n");
@@ -205,9 +209,9 @@ public class calculator_v2 {
         String ANSI_RED = "\u001B[31m";
         String ANSI_GREEN = "\u001B[32m";
         try {
-            int num1 = Integer.parseInt(n1);
-            int num2 = Integer.parseInt(n2);
-            int mul = num1 * num2;
+            float num1 = Float.parseFloat(n1);
+            float num2 = Float.parseFloat(n2);
+            float mul = num1 * num2;
             wait(500);
             System.out.println(ANSI_GREEN + "[ x ] El resultado de la operación es " + mul + ANSI_RESET);
             System.out.println("\n");
@@ -223,13 +227,13 @@ public class calculator_v2 {
         String ANSI_RED = "\u001B[31m";
         String ANSI_GREEN = "\u001B[32m";
         try {
-            int num1 = Integer.parseInt(n1);
-            int num2 = Integer.parseInt(n2);
+            float num1 = Float.parseFloat(n1);
+            float num2 = Float.parseFloat(n2);
             if (num2 == 0) {
                 System.out.println(ANSI_RED + "[ ! ] No se puede dividir por cero" + ANSI_RESET);
                 System.exit(1);
             } else {
-                int div = num1 / num2;
+                float div = num1 / num2;
                 wait(500);
                 System.out.println(ANSI_GREEN + "[ / ] El resultado de la operación es " + div + ANSI_RESET);
                 System.out.println("\n");
