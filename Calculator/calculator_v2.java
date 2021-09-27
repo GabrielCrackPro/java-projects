@@ -12,153 +12,155 @@ package Calculator;
 import java.util.Scanner;
 
 public class calculator_v2 {
-    public static void wait(int miliseconds) {
-        try {
-            Thread.sleep(miliseconds);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    } // Función para pausar el programa
-
-    public static int round(float number) {
-        return Math.round(number);
-    } // Función para redondear un número
-
     public static void main(String[] args) {
         // Colores
         String ANSI_RESET = "\u001B[0m";
         String ANSI_RED = "\u001B[31m";
         String ANSI_GREEN = "\u001B[32m";
         String ANSI_BLUE = "\u001B[34m";
-        String ANSI_PURPLE = "\u001B[35m";
+        String ANSI_CYAN = "\u001B[36m";
+        String BOLD_TEXT = "\033[0;1m";
+        String PLAIN_TEXT = "\033[0;0m";
 
         Scanner sc = new Scanner(System.in);
-        System.out.println(ANSI_PURPLE + "=== Calculadora ===" + ANSI_RESET);
+        System.out.println(BOLD_TEXT + ANSI_CYAN + "[ 1 ] Suma" + PLAIN_TEXT + ANSI_RESET);
+        System.out.println(BOLD_TEXT + ANSI_CYAN + "[ 2 ] Resta" + PLAIN_TEXT + ANSI_RESET);
+        System.out.println(BOLD_TEXT + ANSI_CYAN + "[ 3 ] Multiplicacion" + PLAIN_TEXT + ANSI_RESET);
+        System.out.println(BOLD_TEXT + ANSI_CYAN + "[ 4 ] Division" + PLAIN_TEXT + ANSI_RESET);
+        System.out.println(BOLD_TEXT + ANSI_CYAN + "[ 5 ] Acerca De" + PLAIN_TEXT + ANSI_RESET);
+        System.out.println(BOLD_TEXT + ANSI_CYAN + "[ 6 ] Salir" + PLAIN_TEXT + ANSI_RESET);
         System.out.println("\n");
-        System.out.println(ANSI_PURPLE + "[ 1 ] " + ANSI_RESET + "Suma");
-        System.out.println(ANSI_PURPLE + "[ 2 ] " + ANSI_RESET + "Resta");
-        System.out.println(ANSI_PURPLE + "[ 2 ] " + ANSI_RESET + "Resta");
-        System.out.println(ANSI_PURPLE + "[ 3 ] " + ANSI_RESET + "Multiplicacion");
-        System.out.println(ANSI_PURPLE + "[ 4 ] " + ANSI_RESET + "Division");
-        System.out.println(ANSI_PURPLE + "[ 5 ] " + ANSI_RESET + "Salir");
-        System.out.println("\n");
-        System.out.print(ANSI_BLUE + "[ ? ] " + ANSI_RESET + "Por favor, elige una opción: ");
+        System.out.print(BOLD_TEXT + ANSI_BLUE + "[ ? ] Por favor, elige una opción: " + PLAIN_TEXT + ANSI_RESET);
         int option;
         try {
             option = sc.nextInt();
         } catch (Exception e) {
-            System.out.println(ANSI_RED + "[ i ] El caracter introducido no es un número." + ANSI_RESET);
+            System.out.println(
+                    BOLD_TEXT + ANSI_RED + "[ ! ] El caracter introducido no es un número." + PLAIN_TEXT + ANSI_RESET);
             option = 0;
             System.exit(1);
         }
         switch (option) {
             case 1:
-                System.out.println(
-                        ANSI_GREEN + "[ i ] " + ANSI_RESET + "Has elegido " + ANSI_GREEN + "SUMA" + ANSI_RESET);
-                System.out.print(ANSI_BLUE + "[ ? ] " + ANSI_RESET + "Ingresa el primer número: ");
+                System.out.println(BOLD_TEXT + ANSI_GREEN + "[ i ] Has elegido SUMA" + PLAIN_TEXT + ANSI_RESET);
+                System.out.print(BOLD_TEXT + ANSI_BLUE + "[ ? ] Ingresa el primer número: " + PLAIN_TEXT + ANSI_RESET);
                 String num1 = sc.next();
-                System.out.println(ANSI_GREEN + "[ i ] " + ANSI_RESET + "Has introducido el número " + ANSI_GREEN + num1
-                        + ANSI_RESET);
-                System.out.print(ANSI_BLUE + "[ ? ] " + ANSI_RESET + "Ingresa el segundo número: ");
+                checkChars(num1);
+                System.out.println(
+                        BOLD_TEXT + ANSI_GREEN + "[ i ] Has introducido el número " + num1 + PLAIN_TEXT + ANSI_RESET);
+                System.out.print(BOLD_TEXT + ANSI_BLUE + "[ ? ] Ingresa el segundo número: " + PLAIN_TEXT + ANSI_RESET);
                 String num2 = sc.next();
-                System.out.println(ANSI_GREEN + "[ i ] " + ANSI_RESET + "Has introducido el número " + ANSI_GREEN + num2
-                        + ANSI_RESET);
+                checkChars(num2);
+                System.out.println(
+                        BOLD_TEXT + ANSI_GREEN + "[ i ] Has introducido el número " + num2 + PLAIN_TEXT + ANSI_RESET);
                 add(num1, num2);
-                System.out.print(ANSI_BLUE + "[ ? ] " + ANSI_RESET + "¿Quieres realizar otra operación? " + ANSI_BLUE
-                        + "s/n " + ANSI_RESET);
+                System.out.print(BOLD_TEXT + ANSI_BLUE + "[ ? ] ¿Quieres realizar otra operación? s/n " + PLAIN_TEXT
+                        + ANSI_RESET);
                 String answer = sc.next();
                 if (answer.equals("s")) {
                     wait(1000);
                     main(args);
                 } else {
                     System.out.println("\n");
-                    System.out.println(ANSI_RED + "[ i ] Saliendo..." + ANSI_RESET);
+                    System.out.println(BOLD_TEXT + ANSI_RED + "[ i ] Saliendo..." + PLAIN_TEXT + ANSI_RESET);
                     wait(500);
                     System.exit(0);
                 }
                 break;
             case 2:
-                System.out.println(
-                        ANSI_GREEN + "[ i ] " + ANSI_RESET + "Has elegido " + ANSI_GREEN + " RESTA" + ANSI_RESET);
-                System.out.print(ANSI_BLUE + "[ ? ] " + ANSI_RESET + "Ingresa el primer número: ");
+                System.out.println(BOLD_TEXT + ANSI_GREEN + "[ i ] Has elegido RESTA" + PLAIN_TEXT + ANSI_RESET);
+                System.out.print(BOLD_TEXT + ANSI_BLUE + "[ ? ] Ingresa el primer número: " + PLAIN_TEXT + ANSI_RESET);
                 num1 = sc.next();
-                System.out.println(ANSI_GREEN + "[ i ] " + ANSI_RESET + "Has introducido el número " + ANSI_GREEN + num1
-                        + ANSI_RESET);
-                System.out.print(ANSI_BLUE + "[ ? ] " + ANSI_RESET + "Ingresa el segundo nùmero: ");
+                checkChars(num1);
+                System.out.println(
+                        BOLD_TEXT + ANSI_GREEN + "[ i ]  Has introducido el número " + num1 + PLAIN_TEXT + ANSI_RESET);
+                System.out.print(BOLD_TEXT + ANSI_BLUE + "[ ? ] Ingresa el segundo nùmero: " + PLAIN_TEXT + ANSI_RESET);
                 num2 = sc.next();
-                System.out.println(ANSI_GREEN + "[ i ] " + ANSI_RESET + "Has introducido el número " + ANSI_GREEN + num2
-                        + ANSI_RESET);
+                checkChars(num2);
+                System.out.println(
+                        BOLD_TEXT + ANSI_GREEN + "[ i ] Has introducido el número " + num2 + PLAIN_TEXT + ANSI_RESET);
                 subtract(num1, num2);
-                System.out.print(ANSI_BLUE + "[ ? ] " + ANSI_RESET + "¿Quieres realizar otra operación? " + ANSI_BLUE
-                        + "s/n " + ANSI_RESET);
+                System.out.print(BOLD_TEXT + ANSI_BLUE + "[ ? ] ¿Quieres realizar otra operación? s/n" + PLAIN_TEXT
+                        + ANSI_RESET);
                 answer = sc.next();
                 if (answer.equals("s")) {
                     wait(1000);
                     main(args);
                 } else {
                     System.out.println("\n");
-                    System.out.println(ANSI_RED + "[ i ] Saliendo..." + ANSI_RESET);
+                    System.out.println(BOLD_TEXT + ANSI_RED + "[ i ] Saliendo..." + PLAIN_TEXT + ANSI_RESET);
                     wait(500);
                     System.exit(0);
                 }
                 break;
             case 3:
-                System.out.println(ANSI_GREEN + "[ i ] " + ANSI_RESET + "Has elegido " + ANSI_GREEN + " MULTIPLICACION"
-                        + ANSI_RESET);
-                System.out.print(ANSI_BLUE + "[ ? ] " + ANSI_RESET + "Ingresa el primer nùmero: ");
+                System.out
+                        .println(BOLD_TEXT + ANSI_GREEN + "[ i ] Has elegido MULTIPLICACION" + PLAIN_TEXT + ANSI_RESET);
+                System.out.print(BOLD_TEXT + ANSI_BLUE + "[ ? ] Ingresa el primer nùmero: " + PLAIN_TEXT + ANSI_RESET);
                 num1 = sc.next();
-                System.out.println(ANSI_GREEN + "[ i ] " + ANSI_RESET + "Has introducido el número " + ANSI_GREEN + num1
-                        + ANSI_RESET);
-                System.out.print(ANSI_BLUE + "[ ? ] " + ANSI_RESET + "Ingresa el segundo nùmero: ");
+                checkChars(num1);
+                System.out.println(
+                        BOLD_TEXT + ANSI_GREEN + "[ i ] Has introducido el número " + num1 + PLAIN_TEXT + ANSI_RESET);
+                System.out.print(BOLD_TEXT + ANSI_BLUE + "[ ? ] Ingresa el segundo nùmero: " + PLAIN_TEXT + ANSI_RESET);
                 num2 = sc.next();
-                System.out.println(ANSI_GREEN + "[ i ] " + ANSI_RESET + "Has introducido el número " + ANSI_GREEN + num2
-                        + ANSI_RESET);
+                checkChars(num2);
+                System.out.println(
+                        BOLD_TEXT + ANSI_GREEN + "[ i ] Has introducido el número " + num2 + PLAIN_TEXT + ANSI_RESET);
                 multiply(num1, num2);
-                System.out.print(ANSI_BLUE + "[ ? ]" + ANSI_RESET + "¿Quieres realizar otra operación? " + ANSI_BLUE
-                        + "s/n " + ANSI_RESET);
+                System.out.print(BOLD_TEXT + ANSI_BLUE + "[ ? ] ¿Quieres realizar otra operación? s/n " + PLAIN_TEXT
+                        + ANSI_RESET);
                 answer = sc.next();
                 if (answer.equals("s")) {
                     wait(1000);
                     main(args);
                 } else {
                     System.out.println("\n");
-                    System.out.println(ANSI_RED + "[ i ] Saliendo..." + ANSI_RESET);
+                    System.out.println(BOLD_TEXT + ANSI_RED + "[ i ] Saliendo..." + PLAIN_TEXT + ANSI_RESET);
                     wait(500);
                     System.exit(0);
                 }
                 break;
             case 4:
-                System.out.println(
-                        ANSI_GREEN + "[ i ] " + ANSI_RESET + "Has elegido " + ANSI_GREEN + "DIVISION" + ANSI_RESET);
-                System.out.print(ANSI_BLUE + "[ ? ] " + ANSI_RESET + "Ingresa el primer número: ");
+                System.out.println(BOLD_TEXT + ANSI_GREEN + "[ i ] Has elegido DIVISION" + PLAIN_TEXT + ANSI_RESET);
+                System.out.print(BOLD_TEXT + ANSI_BLUE + "[ ? ] Ingresa el primer número: " + PLAIN_TEXT + ANSI_RESET);
                 num1 = sc.next();
-                System.out.println(ANSI_GREEN + "[ i ] " + ANSI_RESET + "Has introducido el número " + ANSI_GREEN + num1
-                        + ANSI_RESET);
-                System.out.print(ANSI_BLUE + "[ ? ] " + ANSI_RESET + "Ingresa el segundo nùmero: ");
+                checkChars(num1);
+                System.out.println(
+                        BOLD_TEXT + ANSI_GREEN + "[ i ] Has introducido el número " + num1 + PLAIN_TEXT + ANSI_RESET);
+                System.out.print(BOLD_TEXT + ANSI_BLUE + "[ ? ] Ingresa el segundo nùmero: " + PLAIN_TEXT + ANSI_RESET);
                 num2 = sc.next();
-                System.out.println(ANSI_GREEN + "[ i ] " + ANSI_RESET + "Has introducido el número " + ANSI_GREEN + num2
-                        + ANSI_RESET);
+                checkChars(num2);
+                System.out.println(
+                        BOLD_TEXT + ANSI_GREEN + "[ i ] Has introducido el número " + num2 + PLAIN_TEXT + ANSI_RESET);
                 divide(num1, num2);
-                System.out.print(ANSI_BLUE + "[ ? ] " + ANSI_RESET + "¿Quieres realizar otra operación? " + ANSI_BLUE
-                        + "s/n " + ANSI_RESET);
+                System.out.print(BOLD_TEXT + ANSI_BLUE + "[ ? ] ¿Quieres realizar otra operación? s/n " + PLAIN_TEXT
+                        + ANSI_RESET);
                 answer = sc.next();
                 if (answer.equals("s")) {
                     wait(1000);
                     main(args);
                 } else {
                     System.out.println("\n");
-                    System.out.println(ANSI_RED + "[ i ] Saliendo..." + ANSI_RESET);
+                    System.out.println(BOLD_TEXT + ANSI_RED + "[ i ] Saliendo..." + PLAIN_TEXT + ANSI_RESET);
                     wait(500);
                     System.exit(0);
                 }
                 break;
             case 5:
-                System.out.println(ANSI_RED + "[ i ] Saliendo..." + ANSI_RESET);
+                System.out.println(BOLD_TEXT + ANSI_GREEN + "[ i ] Acerca De" + PLAIN_TEXT + ANSI_RESET);
+                System.out.println("\n");
+                System.out.println(BOLD_TEXT + ANSI_BLUE + "[ i ] Autor: Gabriel Vargas (Github: @GabrielCrackPro)"
+                        + PLAIN_TEXT + ANSI_RESET);
+                System.out.println(BOLD_TEXT + ANSI_BLUE + "[ i ] Fecha: 26/09/2021" + PLAIN_TEXT + ANSI_RESET);
+                break;
+            case 6:
+                System.out.println(BOLD_TEXT + ANSI_RED + "[ i ] Saliendo..." + PLAIN_TEXT + ANSI_RESET);
                 wait(500);
                 System.exit(0);
                 break;
             default:
-                System.out.println(ANSI_RED + "[ ! ] Por favor, elige una opcion válida" + ANSI_RESET);
+                System.out.println(
+                        BOLD_TEXT + ANSI_RED + "[ ! ] Por favor, elige una opcion válida" + PLAIN_TEXT + ANSI_RESET);
                 wait(1000);
                 main(args);
                 break;
@@ -167,21 +169,50 @@ public class calculator_v2 {
 
     }
 
+    public static void wait(int miliseconds) {
+        try {
+            Thread.sleep(miliseconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    } // Función para pausar el programa
+
+    public static void checkChars(String input) {
+        String ANSI_RESET = "\u001B[0m";
+        String ANSI_RED = "\u001B[31m";
+        String BOLD_TEXT = "\033[0;1m";
+        String PLAIN_TEXT = "\033[0;0m";
+        String chars = "abcdefghijklmnopqrstuvwxyz";
+        String symb = "!@,{}[]:;''#$%&/()=?|";
+        String upperChars = chars.toUpperCase();
+        for (int i = 0; i < input.length(); i++) {
+            if (input.contains(chars) || input.contains(upperChars) || input.contains(symb)) {
+                System.out.println(BOLD_TEXT + ANSI_RED + "[ ! ] Debes introducir un número" + PLAIN_TEXT + ANSI_RESET);
+                wait(1000);
+                System.exit(1);
+            }
+        }
+    } // Función para comprobar que el usuario no ha introducido letras o simbolos
+
     public static void add(String n1, String n2) {
         // Colores
         String ANSI_RESET = "\u001B[0m";
         String ANSI_RED = "\u001B[31m";
         String ANSI_GREEN = "\u001B[32m";
+        String BOLD_TEXT = "\033[0;1m";
+        String PLAIN_TEXT = "\033[0;0m";
         try {
             float num1 = Float.parseFloat(n1);
             float num2 = Float.parseFloat(n2);
             float sum = num1 + num2;
-            System.out.println(ANSI_GREEN + "[ + ] El resultado de la operación es " + sum + ANSI_RESET);
+            System.out.println(
+                    BOLD_TEXT + ANSI_GREEN + "[ + ] El resultado de la operación es " + sum + PLAIN_TEXT + ANSI_RESET);
             wait(500);
             System.out.println("\n");
         } catch (NumberFormatException e) {
-            System.out.println(ANSI_RED + "[ ! ] Los datos intrroducidos no son válidos, por favor intentalo de nuevo"
-                    + ANSI_RESET);
+            System.out.println(
+                    BOLD_TEXT + ANSI_RED + "[ ! ] Los datos intrroducidos no son válidos, por favor intentalo de nuevo"
+                            + PLAIN_TEXT + ANSI_RESET);
         }
     }
 
@@ -190,16 +221,20 @@ public class calculator_v2 {
         String ANSI_RESET = "\u001B[0m";
         String ANSI_RED = "\u001B[31m";
         String ANSI_GREEN = "\u001B[32m";
+        String BOLD_TEXT = "\033[0;1m";
+        String PLAIN_TEXT = "\033[0;0m";
         try {
             float num1 = Float.parseFloat(n1);
             float num2 = Float.parseFloat(n2);
             float sub = num1 - num2;
             wait(500);
-            System.out.println(ANSI_GREEN + "[ - ] El resultado de la operación es " + sub + ANSI_RESET);
+            System.out.println(
+                    BOLD_TEXT + ANSI_GREEN + "[ - ] El resultado de la operación es " + sub + PLAIN_TEXT + ANSI_RESET);
             System.out.println("\n");
         } catch (NumberFormatException e) {
-            System.out.println(ANSI_RED + "[ ! ] Los datos introducidos no son válidos, por favor intentalo de nuevo"
-                    + ANSI_RESET);
+            System.out.println(
+                    BOLD_TEXT + ANSI_RED + "[ ! ] Los datos introducidos no son válidos, por favor intentalo de nuevo"
+                            + PLAIN_TEXT + ANSI_RESET);
         }
     }
 
@@ -208,16 +243,20 @@ public class calculator_v2 {
         String ANSI_RESET = "\u001B[0m";
         String ANSI_RED = "\u001B[31m";
         String ANSI_GREEN = "\u001B[32m";
+        String BOLD_TEXT = "\033[0;1m";
+        String PLAIN_TEXT = "\033[0;0m";
         try {
             float num1 = Float.parseFloat(n1);
             float num2 = Float.parseFloat(n2);
             float mul = num1 * num2;
             wait(500);
-            System.out.println(ANSI_GREEN + "[ x ] El resultado de la operación es " + mul + ANSI_RESET);
+            System.out.println(
+                    BOLD_TEXT + ANSI_GREEN + "[ x ] El resultado de la operación es " + mul + PLAIN_TEXT + ANSI_RESET);
             System.out.println("\n");
         } catch (NumberFormatException e) {
-            System.out.println(ANSI_RED + "[ ! ] Los datos introducidos no son válidos, por favor intentalo de nuevo"
-                    + ANSI_RESET);
+            System.out.println(
+                    BOLD_TEXT + ANSI_RED + "[ ! ] Los datos introducidos no son válidos, por favor intentalo de nuevo"
+                            + PLAIN_TEXT + ANSI_RESET);
         }
     }
 
@@ -226,21 +265,26 @@ public class calculator_v2 {
         String ANSI_RESET = "\u001B[0m";
         String ANSI_RED = "\u001B[31m";
         String ANSI_GREEN = "\u001B[32m";
+        String BOLD_TEXT = "\033[0;1m";
+        String PLAIN_TEXT = "\033[0;0m";
         try {
             float num1 = Float.parseFloat(n1);
             float num2 = Float.parseFloat(n2);
             if (num2 == 0) {
-                System.out.println(ANSI_RED + "[ ! ] No se puede dividir por cero" + ANSI_RESET);
+                System.out
+                        .println(BOLD_TEXT + ANSI_RED + "[ ! ] No se puede dividir por cero" + PLAIN_TEXT + ANSI_RESET);
                 System.exit(1);
             } else {
                 float div = num1 / num2;
                 wait(500);
-                System.out.println(ANSI_GREEN + "[ / ] El resultado de la operación es " + div + ANSI_RESET);
+                System.out.println(BOLD_TEXT + ANSI_GREEN + "[ / ] El resultado de la operación es " + div + PLAIN_TEXT
+                        + ANSI_RESET);
                 System.out.println("\n");
             }
         } catch (NumberFormatException e) {
-            System.out.println(ANSI_RED + "[ ! ] Los datos introducidos no son válidos, por favor intentalo de nuevo"
-                    + ANSI_RESET);
+            System.out.println(
+                    BOLD_TEXT + ANSI_RED + "[ ! ] Los datos introducidos no son válidos, por favor intentalo de nuevo"
+                            + PLAIN_TEXT + ANSI_RESET);
         }
     }
 }
