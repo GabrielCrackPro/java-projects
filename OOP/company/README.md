@@ -12,7 +12,7 @@ This class is defined by the following attributes:
 - Phone
 - Website
 - Description
-- Boss
+- Boss <br>
   This class has the following methods:
 - Setters and Getters
 - getCompanyInfo() - Displays all asigned atributtes of the class
@@ -31,7 +31,7 @@ This class defines the boss of the company is composed by the following atribute
 - jobTitle
 - Company
 - Salary
-- workingState
+- workingState <br>
   The class has the following methods:
 - Setters and Getters
 - getBossInfo() - Displays all asigned atributes of the class
@@ -53,7 +53,7 @@ This class defines the employee of the company and it has the following attribut
 - Salary
 - jobTitle
 - hireDate
-- workingState
+- workingState <br>
   The class has the following metohds:
 - Getters and Setters
 - setWorkingState
