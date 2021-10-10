@@ -59,8 +59,8 @@ public class boss {
 
     // Methods
     public String getBossInfo() {
-        return "Boss: " + this.name + " is " + this.age + " years old, works as a " + this.jobTitle + " at "
-                + this.company.getName() + " and earns " + this.salary + " dollars per month.";
+        return green + "[ i ] Boss: " + this.name + " is " + this.age + " years old, works as a " + this.jobTitle
+                + " at " + this.company.getName() + " and earns " + this.salary + " dollars per month." + reset;
     }
 
     public void setWorkingState(boolean isWorking) {

@@ -1,4 +1,10 @@
 public class company {
+    public static final String red = "\u001B[31m";
+    public static final String green = "\u001B[32m";
+    public static final String yellow = "\u001B[33m";
+    public static final String blue = "\u001B[34m";
+    public static final String reset = "\u001B[0m";
+
     public String name;
     public String address;
     public String phone;
@@ -63,17 +69,18 @@ public class company {
 
     // Methods
     public String getCompanyInfo() {
-        return "Company name: " + this.name + "\n" + "Company address: " + this.address + "\n" + "Company phone: "
-                + this.phone + "\n" + "Company email: " + this.email + "\n" + "Company website: " + this.website + "\n"
-                + "Company description: " + this.description + "\n";
+        return green + "[ i ] Company name: " + this.name + reset + "\n" + green + "[ i ] Company address: "
+                + this.address + "\n" + reset + green + "[ i ] Company phone: " + this.phone + reset + "\n" + green
+                + "[ i ] Company email: " + this.email + "\n" + reset + green + "[ i ] Company website: " + this.website
+                + "\n" + reset + green + "[ i ] Company description: " + this.description + reset + "\n";
     }
 
     public String getEmployeesInfo() {
-        return "Company employees: " + this.employees.length + "\n";
+        return green + "[ i ] Company employees: " + this.employees.length + reset + "\n";
     }
 
     public String getBossInfo() {
-        return "Company boss: " + this.boss.getBossInfo();
+        return green + "[ i ] Company boss: " + this.boss.getBossInfo() + reset + "\n";
     }
 
     public void addEmployee(employee employee) {

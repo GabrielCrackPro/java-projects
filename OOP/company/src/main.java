@@ -52,7 +52,46 @@ public class main {
 
         company.boss = boss;
 
-        System.out.println(green + "[ i ] Company created successfully!" + reset);
+        System.out.println(green + "[ i ] Company created successfully!\n\n" + reset);
+        System.out.println(blue + "[ ? ] What do you want to do now? Select an option" + reset);
+        System.out.println(yellow + "[ 1 ] Add new employee" + reset);
+        System.out.println(yellow + "[ 2 ] Get company info" + reset);
+        System.out.println(yellow + "[ 3 ] Get boss info" + reset);
+        System.out.println(yellow + "[ 4 ] Exit" + reset);
+
+        System.out.print(blue + "[ ? ] Option: " + reset);
+        int option = sc.nextInt();
+        switch (option) {
+            case 1:
+                System.out.println(blue + "[ i ] Adding new employee... \n" + reset);
+
+                employee employee = new employee();
+
+                System.out.print(blue + "[ ? ] Employee name: " + reset);
+                String employeeName = sc.nextLine();
+                employee.setName(employeeName);
+
+                System.out.print(blue + "[ ? ] Employee salary: " + reset);
+                int employeeSalary = sc.nextInt();
+                employee.setSalary(employeeSalary);
+
+                employee.setCompany(company);
+
+                company.getEmployeesInfo();
+                System.out.println(green + "[ i ] Employee added successfully!" + reset);
+                break;
+            case 2:
+                System.out.println(green + "[ i ] Getting company info... \n" + reset);
+                System.out.println(company.getCompanyInfo());
+                break;
+            case 3:
+                System.out.println(green + "[ i ] Getting boss info... \n" + reset);
+                System.out.println(company.boss.getBossInfo());
+                break;
+            case 4:
+                System.out.println(blue + "[ i ] Exiting... \n" + reset);
+                break;
+        }
 
         sc.close();
 
