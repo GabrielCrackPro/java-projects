@@ -15,11 +15,11 @@ Each class has its own atributes and methods that can be accessed by the others 
 - Boss <br>
   **_This class has the following methods:_**
 - Setters and Getters
-- getCompanyInfo() - Displays all asigned atributtes of the class
-- getEmployeesInfo() - Displays all info about the employees that the company has
-- getBossInfo() - Displays all info about the boss of the company
-- addEmployee() - Allows to "hire" new employees for the company
-- removeEmployee() - Allows to "fire" a individual employee of the company
+- <code>getCompanyInfo()</code> Displays all asigned atributtes of the class
+- <code>getEmployeesInfo()</code> Displays all info about the employees that the company has
+- <code>getBossInfo()</code> Displays all info about the boss of the company
+- <code>addEmployee()</code> Allows to "hire" new employees for the company
+- <code>removeEmployee()</code> Allows to "fire" a individual employee of the company
   This methods can only be executed by the boss
 
 ## Boss
@@ -34,12 +34,12 @@ Each class has its own atributes and methods that can be accessed by the others 
 - workingState <br>
   **_The class has the following methods:_**
 - Setters and Getters
-- getBossInfo() - Displays all asigned atributes of the class
-- setWokingState() - Defines is the boss is doing something
-- hireEmployee() - Allows to add a new employee to the company
-- fireEmployee() - Allowa to remove a employee of the company
-- riseSalary() - Allows boss to increment his own salary
-- riseEmployeeSalary() - Allows boss to increment a individual employee salary
+- <code>getBossInfo()</code> Displays all asigned atributes of the class
+- <code>setWokingState()</code> Defines is the boss is doing something
+- <code>hireEmployee()</code> Allows to add a new employee to the company
+- <code>fireEmployee()</code> Allows to remove a employee of the company
+- <code>riseSalary()</code> Allows boss to increment his own salary
+- <code>riseEmployeeSalary()</code> Allows boss to increment a individual employee salary
 
 ## Employee
 
@@ -56,4 +56,4 @@ Each class has its own atributes and methods that can be accessed by the others 
 - workingState <br>
   **_The class has the following metohds:_**
 - Getters and Setters
-- setWorkingState
+- <code>setWorkingState()</code>
