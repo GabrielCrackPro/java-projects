@@ -5,7 +5,7 @@ Each class has its own atributes and methods that can be accessed by the others 
 
 ## Company
 
-This class is defined by the following attributes:
+**_This class is defined by the following attributes:_**
 
 - Name
 - Address
@@ -13,7 +13,7 @@ This class is defined by the following attributes:
 - Website
 - Description
 - Boss <br>
-  This class has the following methods:
+  **_This class has the following methods:_**
 - Setters and Getters
 - getCompanyInfo() - Displays all asigned atributtes of the class
 - getEmployeesInfo() - Displays all info about the employees that the company has
@@ -24,7 +24,7 @@ This class is defined by the following attributes:
 
 ## Boss
 
-This class defines the boss of the company is composed by the following atributes:
+**_This class defines the boss of the company is composed by the following atributes:_**
 
 - Name
 - Age
@@ -32,7 +32,7 @@ This class defines the boss of the company is composed by the following atribute
 - Company
 - Salary
 - workingState <br>
-  The class has the following methods:
+  **_The class has the following methods:_**
 - Setters and Getters
 - getBossInfo() - Displays all asigned atributes of the class
 - setWokingState() - Defines is the boss is doing something
@@ -43,7 +43,7 @@ This class defines the boss of the company is composed by the following atribute
 
 ## Employee
 
-This class defines the employee of the company and it has the following attributes:
+**_This class defines the employee of the company and it has the following attributes:_**
 
 - Name
 - Address
@@ -54,6 +54,6 @@ This class defines the employee of the company and it has the following attribut
 - jobTitle
 - hireDate
 - workingState <br>
-  The class has the following metohds:
+  **_The class has the following metohds:_**
 - Getters and Setters
 - setWorkingState
