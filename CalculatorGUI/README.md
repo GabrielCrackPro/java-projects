@@ -14,4 +14,4 @@ This is the first real GUI application that I made
 - <code>java.awt.event.ActionListener</code> - To listen when a button is clicked
 - <code>java.awt.event.ActionEvent</code> - To preform an action when a button is clicked
 
-View the <a href="https://github.com/GabrielCrackPro/java-projects/blob/main/CalculatorGUI/src/CalculatorGUI.java" target="blank">java file</a>
+For more information view the .java flie <a href="https://github.com/GabrielCrackPro/java-projects/blob/main/CalculatorGUI/src/CalculatorGUI.java" target="blank">here</a>
