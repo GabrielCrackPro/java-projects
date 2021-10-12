@@ -1,7 +1,9 @@
 import javax.swing.*;
+
 import java.awt.Font;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,12 +17,16 @@ public class CalculatorGUI implements Runnable {
         frame.setSize(400, 400);
         frame.setResizable(false);
         frame.setVisible(true);
+        frame.setBackground(Color.BLACK);
 
         JTextField textField = new JTextField(20);
-        textField.setFont(new Font("Arial", Font.PLAIN, 20));
-        textField.setSize(350, 50);
+        textField.setFont(new Font("Arial", Font.BOLD, 20));
+        textField.setBackground(Color.GRAY);
+        textField.setForeground(Color.WHITE);
+        textField.setSize(350, 60);
         textField.setPreferredSize(textField.getSize());
-        textField.setHorizontalAlignment(JTextField.LEFT);
+        textField.setHorizontalAlignment(JTextField.RIGHT);
+        textField.setText("0");
         textField.setEditable(false);
 
         frame.add(textField);
@@ -29,7 +35,7 @@ public class CalculatorGUI implements Runnable {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (e.getActionCommand().equals("AC")) {
-                    textField.setText("");
+                    textField.setText("0");
                 } else if (e.getActionCommand().equals("+/-")) {
                     String text = textField.getText();
                     if (text.charAt(0) == '-') {
@@ -45,7 +51,11 @@ public class CalculatorGUI implements Runnable {
                     textField.setText(calculate(text));
                 } else {
                     String text = textField.getText();
-                    textField.setText(text + e.getActionCommand());
+                    if (text.equals("0")) {
+                        textField.setText(e.getActionCommand());
+                    } else {
+                        textField.setText(text + e.getActionCommand());
+                    }
                 }
 
             }
@@ -81,13 +91,20 @@ public class CalculatorGUI implements Runnable {
         firstRow[3] = new JButton("/");
 
         for (int i = 0; i < 4; i++) {
-            firstRow[i].setFont(new Font("Arial", Font.PLAIN, 20));
+            firstRow[i].setFont(new Font("Arial", Font.BOLD, 20));
             firstRow[i].setSize(50, 50);
             firstRow[i].setPreferredSize(firstRow[i].getSize());
             firstRow[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+            firstRow[i].setOpaque(true);
+            firstRow[i].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            firstRow[i].setBackground(new Color(253, 141, 14));
+            firstRow[i].setForeground(Color.WHITE);
+            firstRow[i].setFocusPainted(true);
             firstRow[i].addActionListener(listener);
             firstRowPanel.add(firstRow[i]);
         }
+        firstRow[0].setBackground(Color.RED);
+        firstRow[3].setBackground(Color.GRAY);
         frame.add(firstRowPanel);
 
         JButton[] secondRow = new JButton[4];
@@ -99,13 +116,18 @@ public class CalculatorGUI implements Runnable {
         secondRow[3] = new JButton("*");
 
         for (int i = 0; i < 4; i++) {
-            secondRow[i].setFont(new Font("Arial", Font.PLAIN, 20));
+            secondRow[i].setFont(new Font("Arial", Font.BOLD, 20));
             secondRow[i].setSize(50, 50);
             secondRow[i].setPreferredSize(secondRow[i].getSize());
             secondRow[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+            secondRow[i].setOpaque(true);
+            secondRow[i].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            secondRow[i].setBackground(new Color(253, 141, 14));
+            secondRow[i].setForeground(Color.WHITE);
             secondRow[i].addActionListener(listener);
             secondRowPanel.add(secondRow[i]);
         }
+        secondRow[3].setBackground(Color.GRAY);
         frame.add(secondRowPanel);
 
         JButton[] thirdRow = new JButton[4];
@@ -117,13 +139,18 @@ public class CalculatorGUI implements Runnable {
         thirdRow[3] = new JButton("-");
 
         for (int i = 0; i < 4; i++) {
-            thirdRow[i].setFont(new Font("Arial", Font.PLAIN, 20));
+            thirdRow[i].setFont(new Font("Arial", Font.BOLD, 20));
             thirdRow[i].setSize(50, 50);
             thirdRow[i].setPreferredSize(thirdRow[i].getSize());
             thirdRow[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+            thirdRow[i].setOpaque(true);
+            thirdRow[i].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            thirdRow[i].setBackground(new Color(253, 141, 14));
+            thirdRow[i].setForeground(Color.WHITE);
             thirdRow[i].addActionListener(listener);
             thirdRowPanel.add(thirdRow[i]);
         }
+        thirdRow[3].setBackground(Color.GRAY);
         frame.add(thirdRowPanel);
 
         JButton[] fourthRow = new JButton[4];
@@ -135,13 +162,18 @@ public class CalculatorGUI implements Runnable {
         fourthRow[3] = new JButton("+");
 
         for (int i = 0; i < 4; i++) {
-            fourthRow[i].setFont(new Font("Arial", Font.PLAIN, 20));
+            fourthRow[i].setFont(new Font("Arial", Font.BOLD, 20));
             fourthRow[i].setSize(50, 50);
             fourthRow[i].setPreferredSize(fourthRow[i].getSize());
             fourthRow[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+            fourthRow[i].setOpaque(true);
+            fourthRow[i].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            fourthRow[i].setBackground(new Color(253, 141, 14));
+            fourthRow[i].setForeground(Color.WHITE);
             fourthRow[i].addActionListener(listener);
             fourthRowPanel.add(fourthRow[i]);
         }
+        fourthRow[3].setBackground(Color.GRAY);
         frame.add(fourthRowPanel);
 
         JButton[] fifthRow = new JButton[4];
@@ -149,20 +181,25 @@ public class CalculatorGUI implements Runnable {
         fifthRowPanel.setLayout(new GridLayout(1, 4));
         fifthRow[0] = new JButton("0");
         fifthRow[1] = new JButton(".");
-        fifthRow[2] = new JButton("=");
-        fifthRow[3] = new JButton("");
-
-        fifthRow[3].setVisible(false);
+        fifthRow[2] = new JButton(" ");
+        fifthRow[3] = new JButton("=");
 
         for (int i = 0; i < 4; i++) {
-            fifthRow[i].setFont(new Font("Arial", Font.PLAIN, 20));
+            fifthRow[i].setFont(new Font("Arial", Font.BOLD, 20));
             fifthRow[i].setSize(50, 50);
             fifthRow[i].setPreferredSize(fifthRow[i].getSize());
             fifthRow[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
+            fifthRow[i].setOpaque(true);
+            fifthRow[i].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            fifthRow[i].setBackground(new Color(253, 141, 14));
+            fifthRow[i].setForeground(Color.WHITE);
             fifthRow[i].addActionListener(listener);
             fifthRowPanel.add(fifthRow[i]);
         }
-
+        fifthRow[2].setBackground(Color.RED);
+        fifthRow[3].setBackground(Color.RED);
+        fifthRow[3].setFont(new Font("Arial", Font.BOLD, 30));
+        fifthRow[3].setPreferredSize(fifthRow[3].getSize());
         frame.add(fifthRowPanel);
 
     }
