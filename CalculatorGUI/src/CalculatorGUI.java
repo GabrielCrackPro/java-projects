@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.Font;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
@@ -12,12 +13,12 @@ public class CalculatorGUI implements Runnable {
     public void run() {
         JFrame frame = new JFrame("Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocation(400, 300);
+        frame.setLocation(550, 300);
         frame.setLayout(new FlowLayout());
         frame.setSize(400, 400);
         frame.setResizable(false);
         frame.setVisible(true);
-        frame.setBackground(Color.BLACK);
+        frame.getContentPane().setBackground(Color.WHITE);
 
         JTextField textField = new JTextField(20);
         textField.setFont(new Font("Arial", Font.BOLD, 20));
@@ -83,7 +84,7 @@ public class CalculatorGUI implements Runnable {
 
         JButton[] firstRow = new JButton[4];
         JPanel firstRowPanel = new JPanel();
-
+        firstRowPanel.setBackground(Color.WHITE);
         firstRowPanel.setLayout(new GridLayout(1, 4));
         firstRow[0] = new JButton("AC");
         firstRow[1] = new JButton("+/-");
@@ -96,7 +97,7 @@ public class CalculatorGUI implements Runnable {
             firstRow[i].setPreferredSize(firstRow[i].getSize());
             firstRow[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
             firstRow[i].setOpaque(true);
-            firstRow[i].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            firstRow[i].setBorder(BorderFactory.createStrokeBorder(new BasicStroke(1)));
             firstRow[i].setBackground(new Color(253, 141, 14));
             firstRow[i].setForeground(Color.WHITE);
             firstRow[i].setFocusPainted(true);
@@ -109,6 +110,7 @@ public class CalculatorGUI implements Runnable {
 
         JButton[] secondRow = new JButton[4];
         JPanel secondRowPanel = new JPanel();
+        secondRowPanel.setBackground(Color.GRAY);
         secondRowPanel.setLayout(new GridLayout(1, 4));
         secondRow[0] = new JButton("7");
         secondRow[1] = new JButton("8");
@@ -121,7 +123,7 @@ public class CalculatorGUI implements Runnable {
             secondRow[i].setPreferredSize(secondRow[i].getSize());
             secondRow[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
             secondRow[i].setOpaque(true);
-            secondRow[i].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            secondRow[i].setBorder(BorderFactory.createStrokeBorder(new BasicStroke(1)));
             secondRow[i].setBackground(new Color(253, 141, 14));
             secondRow[i].setForeground(Color.WHITE);
             secondRow[i].addActionListener(listener);
@@ -132,6 +134,7 @@ public class CalculatorGUI implements Runnable {
 
         JButton[] thirdRow = new JButton[4];
         JPanel thirdRowPanel = new JPanel();
+        thirdRowPanel.setBackground(Color.WHITE);
         thirdRowPanel.setLayout(new GridLayout(1, 4));
         thirdRow[0] = new JButton("4");
         thirdRow[1] = new JButton("5");
@@ -144,7 +147,7 @@ public class CalculatorGUI implements Runnable {
             thirdRow[i].setPreferredSize(thirdRow[i].getSize());
             thirdRow[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
             thirdRow[i].setOpaque(true);
-            thirdRow[i].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            thirdRow[i].setBorder(BorderFactory.createStrokeBorder(new BasicStroke(1)));
             thirdRow[i].setBackground(new Color(253, 141, 14));
             thirdRow[i].setForeground(Color.WHITE);
             thirdRow[i].addActionListener(listener);
@@ -155,6 +158,7 @@ public class CalculatorGUI implements Runnable {
 
         JButton[] fourthRow = new JButton[4];
         JPanel fourthRowPanel = new JPanel();
+        fourthRowPanel.setBackground(Color.WHITE);
         fourthRowPanel.setLayout(new GridLayout(1, 4));
         fourthRow[0] = new JButton("1");
         fourthRow[1] = new JButton("2");
@@ -167,7 +171,7 @@ public class CalculatorGUI implements Runnable {
             fourthRow[i].setPreferredSize(fourthRow[i].getSize());
             fourthRow[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
             fourthRow[i].setOpaque(true);
-            fourthRow[i].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            fourthRow[i].setBorder(BorderFactory.createStrokeBorder(new BasicStroke(1)));
             fourthRow[i].setBackground(new Color(253, 141, 14));
             fourthRow[i].setForeground(Color.WHITE);
             fourthRow[i].addActionListener(listener);
@@ -178,6 +182,7 @@ public class CalculatorGUI implements Runnable {
 
         JButton[] fifthRow = new JButton[4];
         JPanel fifthRowPanel = new JPanel();
+        fifthRowPanel.setBackground(Color.WHITE);
         fifthRowPanel.setLayout(new GridLayout(1, 4));
         fifthRow[0] = new JButton("0");
         fifthRow[1] = new JButton(".");
@@ -190,16 +195,15 @@ public class CalculatorGUI implements Runnable {
             fifthRow[i].setPreferredSize(fifthRow[i].getSize());
             fifthRow[i].setCursor(new Cursor(Cursor.HAND_CURSOR));
             fifthRow[i].setOpaque(true);
-            fifthRow[i].setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+            fifthRow[i].setBorder(BorderFactory.createStrokeBorder(new BasicStroke(1)));
             fifthRow[i].setBackground(new Color(253, 141, 14));
             fifthRow[i].setForeground(Color.WHITE);
             fifthRow[i].addActionListener(listener);
             fifthRowPanel.add(fifthRow[i]);
         }
-        fifthRow[2].setBackground(Color.RED);
+        fifthRow[2].setVisible(false);
         fifthRow[3].setBackground(Color.RED);
         fifthRow[3].setFont(new Font("Arial", Font.BOLD, 30));
-        fifthRow[3].setPreferredSize(fifthRow[3].getSize());
         frame.add(fifthRowPanel);
 
     }
